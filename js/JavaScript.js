@@ -345,8 +345,10 @@ mostrarProductos("ofertas", 3);
 // Selecciono el botón "Ver Más Notebooks"
 const verMasNotebooksBtn = document.querySelector("#verMasNotebooksBtn");
 // Selecciono el cuadro emergente
-const cuadroProductos = document.querySelector("#cuadroProductos");
-
+const cuadroProductos = document.querySelector(
+    "#cuadroProductos .cuadro-contenido"
+);
+cuadroProductos.append(card);
 // Agrego el manejador  de eventos al botón "Ver Más Notebooks"
 verMasNotebooksBtn.addEventListener("click", function () {
     // Llamo a la función mostrarProductos con el parámetro para que me muestre todos del tipo "notebook"
