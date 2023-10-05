@@ -33,7 +33,7 @@ h2 {
 
 .encabezado {
     position: fixed;
-    z-index: 9999;
+    z-index: 1;
     top: 0;
     left: 0;
     width: 100%;
@@ -59,7 +59,7 @@ h2 {
     justify-content: center;
     background-color: transparent;
     width: 110%;
-    z-index: 9999;
+    z-index: 1;
 }
 
 .buscador {
@@ -69,8 +69,15 @@ h2 {
 .logo {
     grid-area: logo;
     border-radius: 40%;
-    background-color: transparent;
+    width: 5rem;
+    height: 5rem;
 }
+
+.logo img {
+    width: 100%;
+    height: 4rem;
+}
+
 .carrito {
     grid-area: carrito;
     display: flex;
@@ -93,6 +100,11 @@ h2 {
 .btnCarrito {
     background-color: rgb(68, 0, 153);
     border-radius: 0.5rem;
+}
+
+.offcanvasRight {
+    z-index: 1000;
+    background-color: solid;
 }
 
 .carousel1 {

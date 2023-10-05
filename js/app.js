@@ -7,7 +7,6 @@ const spanTotalCarrito = document.querySelector("#totalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector("#carrito");
 const inputBuscar = document.querySelector("#inputBuscar");
-const botonCarrito = document.querySelector("section h1");
 
 // Instaciamos la clase Carrito
 const carrito = new Carrito();
@@ -65,16 +64,6 @@ inputBuscar.addEventListener("input", (event) => {
     cargarProductos(productos);
 });
 
-//Para mostrar todo el catalogo
-// Obtén una referencia al botón y al div "productos"
-const btnMostrarCatalogo = document.querySelector("#btnMostrarCatalogo");
-
-// Agrega un evento de clic al botón
-btnMostrarCatalogo.addEventListener("click", () => {
-    // Cambia el estilo de visualización del div "productos"
-    divProductos.style.display = "grid";
-});
-
 // Obtén una referencia al enlace "Ver promociones"
 const enlacePromociones = document.getElementById("promocionesBancarias");
 
@@ -91,3 +80,29 @@ enlacePromociones.addEventListener("click", () => {
 cerrarVentana.addEventListener("click", () => {
     ventana.style.display = "none";
 });
+
+//Enlaces categorias para que muestre todos los productos
+const enlacesCategorias = document.querySelectorAll(".nav-link");
+
+enlacesCategorias.forEach((enlace) => {
+    enlace.addEventListener("click", (event) => {
+        event.preventDefault();
+        const categoria = event.target.dataset.categoria;
+        if (categoria === "completo") {
+            cargarProductos(bd.productos);
+        } else {
+            filtrarPorCategoria(categoria);
+        }
+    });
+});
+
+function filtrarPorCategoria(categoria) {
+    const productosFiltrados = bd.productos.filter(
+        (producto) =>
+            producto.categoria.toLowerCase() === categoria.toLowerCase()
+    );
+    console.log(`productos de la categoria ${categoria}:`);
+    console.log(productosFiltrados);
+    //llama a la funcion para mostrar los productos en la pagina
+    cargarProductos(productosFiltrados);
+}
