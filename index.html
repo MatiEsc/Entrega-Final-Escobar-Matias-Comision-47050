@@ -11,7 +11,6 @@
     <!--FUENTE-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@100;300&display=swap" rel="stylesheet"> 
     
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
@@ -19,6 +18,8 @@
     
     <!--CSS-->
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-o2eWlTC6p2pF5f5f5fgB5owz62ttxJp5H5g5f5g5" crossorigin="anonymous">
+
 
     <!-- ANIMATE-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -47,26 +48,35 @@
             <!--BUSCADOR-->
             <div class="buscador">
                 <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                        <button class="button btn-outline-success" type="submit">Buscar</button>
+                    <input class="form-control flex-fill me-2" id="inputBuscar" type="text" placeholder="Buscar" aria-label="Search">
+                    
                 </form>
             </div>
+
 
             <!--CARRITO-->
 
             <div class="carrito">
-                <button class="btn1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><img src="imagenes/iconos/carrito.png"  alt="Carrito"></button>
-
+                <button class="btnCarrito btn-primary carritoIcon" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"></button>
+                <h3><span id="cantidadProductos" class="carritoCantidad">0</span></h3>
                 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasRightLabel">En carrito</h5>
+                        <h3 class="offcanvas-title" id="offcanvasRightLabel">Productos en carrito</h3>
+                        
                         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+
+                    
                     </div>
                     <div class="offcanvas-body">
-                    ...
+                        <div id="scroll">
+                            <div id="carrito">
+                            <!-- Acá van a estar todos los productos que tengamos en el carrito -->
+                            </div>
+                        </div>
+                        <h2>Total: $<span id="totalCarrito">0</span></h2>
+                        <button class="btn btn-outline-success flex-grow-0" type="submit" >Comprar<a href="https://www.mercadopago.com" target="_self"></a></button>
                     </div>
                 </div>
-
             </div>
 
 
@@ -94,6 +104,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="#ofertas">OFERTAS</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#" id="btnMostrarCatalogo">CATALOGO COMPLETO</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -102,101 +115,64 @@
             </div>
 
 
-    </header>
+        </header>
 
-    <main>
-        <div id="carouselExampleAutoplaying" class="carousel slide carousel1" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="imagenes/slider/slider1.webp" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagenes/slider/slider2.webp" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="imagenes/slider/slider3.webp" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Some representative placeholder content for the first slide.</p>
+        <main>
+            <div id="carouselExampleAutoplaying" class="carousel slide carousel1" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="imagenes/slider/slider1.webp" class="d-block w-100" alt="Beneficios Lanzamiento">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/slider/slider2.webp" class="d-block w-100" alt="6 cuotas sin interes">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="imagenes/slider/slider3.webp" class="d-block w-100" alt="Precios Justos"
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
 
-        <div class="opciones">
-            <div class="tarjetas">
-                <img class="imagenTarjetas" src="imagenes/iconos/tarjetas.png" alt="tarjetas">
-                <p>Pagá con crédito y débito</p>
-                <a href="">Ver promociones</a>
+            <div class="opciones">
+                <div class="tarjetas">
+                    <img class="imagenTarjetas" src="imagenes/iconos/tarjetas.png" alt="tarjetas">
+                    <p>Pagá con crédito y débito</p>
+                    <a  id="promocionesBancarias">Ver promociones</a>
+                </div>
+                <div id="ventana" class="ventana">
+                    <div class="ventana-content">
+                        <span class="close" id="cerrarVentana">&times;</span>
+                        <img src="imagenes/rickroll-roll.gif" alt="Promociones bancarias">
+                    </div>
+                </div>
+
+                <div class="tarjetas">
+                    <img src="imagenes/iconos/pesos.png" alt="signo pesos">
+                    <p>Créditos personales</p>
+                </div>
+                <div class="tarjetas">
+                    <img src="imagenes/iconos/envios.png" alt="envíos">
+                    <p>Envíos a todo el país</p>
+                </div>
             </div>
-            <div class="tarjetas">
-                <img src="imagenes/iconos/pesos.png" alt="signo pesos">
-                <p>Créditos personales</p>
+
+            <div class="contenedorTarjetas">
+                <div id="productos">
+                    
+                </div>
             </div>
-            <div class="tarjetas">
-                <img src="imagenes/iconos/envios.png" alt="envíos">
-                <p>Envíos a todo el país</p>
-            </div>
-        </div>
-
-        
-        <section class="seccionNotebook" id="notebook">
-            <h2>Notebooks</h2>
-            <div class="notebooks contenedor-tarjetas">
-                <!-- Acá se mostrarán las tarjetas de productos de tipo "notebook" -->
-            </div>
-            <button id="verMasNotebooksBtn" class="button">Ver Más Notebooks</button>
-
-        </section>
-
-        <section class="seccionCelular" id="celular">
-            <h2>Celulares</h2>
-            <div class="celulares contenedor-tarjetas"> 
-                <!-- Acá se mostrarán las tarjetas de productos de tipo "celulares" -->
-            </div>
-            <button id="verMasCelularesBtn" class="button">Ver Más Celulares</button>
-
-        </section>
-
-        <section class="seccionSmartTv" id="smartTv">
-            <h2>Smart TV</h2>
-            <div class="smartTv contenedor-tarjetas"> 
-                <!-- Acá se mostrarán las tarjetas de productos de tipo "smartTv" -->
-            </div>
-            <button id="verMasSmartTvBtn" class="button">Ver Más Smart TV</button>
-
-        </section>
-
-        <section class="seccionOfertas" id="ofertas">
-            <h2>Ofertas</h2>
-            <div class="ofertas contenedor-tarjetas"> 
-                <!-- Acá se mostrarán las tarjetas de productos de tipo "smartTv" -->
-            </div>
-            <button id="verMasOfertasBtn" class="button">Ver Más Ofertas</button>    
-
-        </section>
+            
 
 
-        
 
-        <!-- Cuadro emergente de productos -->
-        <div id="cuadroProductos" class="cuadro">
-            <div class="cuadro-contenido">
-                <span class="cerrar-cuadro" id="cerrarCuadro">&times;</span>
-                <div class="contenedor-todos"></div>
-            </div>
-        </div>
-
-
-    </main>
+        </main>
 
         <footer class="footer">
             <div class="container">
@@ -205,7 +181,7 @@
                         <h5>Enlaces útiles</h5>
                         <ul class="navbar-nav barraMenu">
                             <li class="nav-item">
-                                    <a class="nav-link " href="#top-page">INICIO</a>
+                                    <a class="nav-link " href="#">INICIO</a>
                             </li>
                                 
                             <li class="nav-item">
@@ -218,18 +194,25 @@
                                 <a class="nav-link" href="#smartTv">SMART TV</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#ofertas">OFERTAS</a>
+                                <a class="nav-link" href="#" >OFERTAS</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" id="btnMostrarCatalogo">VER CATALOGO COMPLETO</a>
                             </li>
                         </ul>
+                        
 
                     </div>
                     <div class="col-md-3">
                         <h5>Redes sociales</h5>
                         <ul>
-                            <li><a href="#"><i class="fab fa-facebook-f"></i> Facebook</a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                            <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i> Facebook</a></li>
+                            <li><a href="https://twitter.com/?lang=es" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+                            <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
                         </ul>
+
+
+
                     </div>
                     <div class="col-md-3">
                         <h5>Información</h5>
@@ -241,13 +224,18 @@
                     <div class="col-md-3">
                         <h5>Contacto</h5>
                         <address>
-                            <p>Dirección: 123 Calle Principal, Ciudad</p>
-                            <p>Email: info@example.com</p>
+                            <p>Dirección: Calle Siempre Viva 123, Springfield </p>
+                            <p>Email: info@moka.com</p>
                             <p>Teléfono: (123) 456-7890</p>
                         </address>
                     </div>
                 </div>
             </div>
+            <hr>
+            <div>
+                <p>Copyright &#169  MatiEsc | Todos los derechos reservados Moka.com. </p>
+            </div>
+
         </footer>
 
         <script
@@ -255,7 +243,8 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"
         ></script>
-        <script src="js/JavaScript.js"></script>
+        <script src="js/app.js"></script>
+        <!--cript src="js/JavaScript.js"></script>-->
 
         
     </body>
