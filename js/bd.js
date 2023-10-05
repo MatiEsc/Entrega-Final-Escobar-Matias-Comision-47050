@@ -1,3 +1,15 @@
+// Clase "molde" para los productos de nuestra aplicación
+class Producto {
+    constructor(id, nombre, descripcion, precio, categoria, imagen) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.precio = precio;
+        this.categoria = categoria;
+        this.imagen = imagen;
+    }
+}
+
 // Clase para que simula la base de datos del e-commerce, acá van a estar
 // todos los productos de nuestro catálogo
 class BaseDeDatos {
@@ -57,7 +69,7 @@ class BaseDeDatos {
         this.agregarRegistro(
             107,
             "Apple",
-            "MacBook Air 13” M1 Chip 8-core CPU 7-core GPU 256GB Silver.",
+            "Apple - MacBook Air 13” M1 Chip 8-core CPU 7-core GPU 256GB Silver.",
             1349900,
             "notebook",
             "imagenes/notebook/notebook-apple.webp"
@@ -82,7 +94,7 @@ class BaseDeDatos {
         this.agregarRegistro(
             201,
             "Apple",
-            "iPhone 13 Pro 256GB Sierra Blue.",
+            "Apple - iPhone 13 Pro 256GB Sierra Blue.",
             2339900,
             "celular",
             "imagenes/celulares/celular-apple.webp"
@@ -146,7 +158,7 @@ class BaseDeDatos {
         this.agregarRegistro(
             209,
             "Apple",
-            "iPhone 13 256GB Pink.",
+            "Apple - iPhone 13 256GB Pink.",
             2429820,
             "celular",
             "imagenes/celulares/celular-apple-pink.webp"
@@ -182,7 +194,7 @@ class BaseDeDatos {
             "Smart TV Hitachi 50” 4K UHD LE504KSMART2.",
             224999,
             "smartTv",
-            "imagenes/smartTv/smartTv-hitachi..webp"
+            "imagenes/smartTv/smartTv-hitachi.webp"
         );
         this.agregarRegistro(
             305,
@@ -198,7 +210,7 @@ class BaseDeDatos {
             "Smart TV 4K 65 Pulgadas LG 65UP7750PSB.",
             489999,
             "smartTv",
-            "imagenes/smartTv/ssmartTv-lg.webp"
+            "imagenes/smartTv/smartTv-lg.webp"
         );
         this.agregarRegistro(
             307,
@@ -236,7 +248,7 @@ class BaseDeDatos {
         this.agregarRegistro(
             402,
             "Apple",
-            "iPhone 13 256GB Pink.",
+            "Apple - iPhone 13 256GB Pink.",
             2429820,
             "ofertas",
             "imagenes/celulares/celular-apple-pink.webp"
@@ -284,7 +296,7 @@ class BaseDeDatos {
         this.agregarRegistro(
             408,
             "Apple",
-            "MacBook Air 13” M1 Chip 8-core CPU 7-core GPU 256GB Silver.",
+            "Apple - MacBook Air 13” M1 Chip 8-core CPU 7-core GPU 256GB Silver.",
             1349900,
             "ofertas",
             "imagenes/notebook/notebook-apple.webp"
@@ -326,7 +338,7 @@ class BaseDeDatos {
     // nombre del producto con la palabra que el pasemos como parámetro
     registrosPorNombre(palabra) {
         return this.productos.filter((producto) =>
-            producto.nombre.toLowerCase().includes(palabra.toLowerCase())
+            producto.descripcion.toLowerCase().includes(palabra.toLowerCase())
         );
     }
 }
