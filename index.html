@@ -17,9 +17,10 @@
 
     
     <!--CSS-->
+    
     <link rel="stylesheet" href="css/style.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha384-o2eWlTC6p2pF5f5f5fgB5owz62ttxJp5H5g5f5g5" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <!-- ANIMATE-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -74,7 +75,10 @@
                             </div>
                         </div>
                         <h2>Total: $<span id="totalCarrito">0</span></h2>
-                        <button class="btn btn-outline-success flex-grow-0" type="submit" >Comprar<a href="https://www.mercadopago.com" target="_self"></a></button>
+                        <!-- Botón para limpiar el carrito -->
+                        <button class="btn btn-outline-danger" id="limpiarCarrito">Vaciar Carrito</button>
+                        <button class="btn btn-outline-danger" id="btnComprar">Comprar</button>
+
                     </div>
                 </div>
             </div>
@@ -93,19 +97,19 @@
                         <div class="collapse navbar-collapse barraNavegacion" id="navbarNav">
                             <ul class="navbar-nav barraMenu">
                                 <li class="nav-item">
-                                    <a class="nav-link " href="#" data-categoria="notebook" >NOTEBOOK</a>
+                                    <a class="nav-link underline-on-hover" href="#" data-categoria="notebook" >NOTEBOOK</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-categoria="celular" >CELULARES</a>
+                                    <a class="nav-link underline-on-hover" href="#" data-categoria="celular" >CELULARES</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-categoria="smartTv">SMART TV</a>
+                                    <a class="nav-link underline-on-hover" href="#" data-categoria="smartTv">SMART TV</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-categoria="ofertas">OFERTAS</a>
+                                    <a class="nav-link underline-on-hover" href="#" data-categoria="ofertas">OFERTAS</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#" data-categoria="completo">CATALOGO COMPLETO</a>
+                                    <a class="nav-link underline-on-hover" href="#" data-categoria="completo">CATALOGO COMPLETO</a>
                                 </li>
                             </ul>
                         </div>
@@ -163,13 +167,44 @@
                 </div>
             </div>
 
-            <div class="contenedorTarjetas">
+
+            
+                <section id="notebook"  >
+                    <h2>Notebooks</h2>
+                    <div class="productos contenedorTarjetas">
+                        <!-- Aquí se mostrarán los primeros 4 productos de la categoría "notebooks" -->
+                    </div>
+                </section>
+            
+                <!-- Sección de Celulares -->
+                <section id="celular" >
+                    <h2>Celulares</h2>
+                    <div class="productos contenedorTarjetas">
+                        <!-- Aquí se mostrarán los primeros 4 productos de la categoría "celulares" -->
+                    </div>
+                </section>
+
+                <!-- Sección de Smart TV -->
+                <section id="smartTv" >
+                    <h2>Smart TV</h2>
+                    <div class="productos contenedorTarjetas">
+                        <!-- Aquí se mostrarán los primeros 4 productos de la categoría "smarttv" -->
+                    </div>
+
+                </section>
+                <!-- Sección de Ofertas -->
+                <section id="ofertas">
+                    <h2>Ofertas</h2>
+                    <div class="productos contenedorTarjetas">
+                        <!-- Aquí se mostrarán los primeros 4 productos de la categoría "ofertas" -->
+                    </div>
+
+                </section>
+            <div id="mostrador" class="contenedorTarjetas">
                 <div id="productos">
                     
                 </div>
             </div>
-            
-
 
 
         </main>
@@ -243,7 +278,8 @@
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
             crossorigin="anonymous"
         ></script>
-        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>        
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
         <script src="js/carrito.js"></script>
         <script src="js/bd.js"></script>

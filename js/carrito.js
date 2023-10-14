@@ -51,6 +51,15 @@ class Carrito {
         // Muestro los productos en el HTML
         this.listar();
     }
+    // Método para vaciar completamente el carrito
+    vaciarCarrito() {
+        // Vaciar el carrito (eliminar todos los productos)
+        this.carrito = [];
+        // Actualizar el storage
+        localStorage.removeItem("carrito");
+        // Muestro los productos en el HTML (carrito vacío)
+        this.listar();
+    }
 
     // Renderiza todos los productos en el HTML
     listar() {
@@ -94,3 +103,77 @@ class Carrito {
         spanTotalCarrito.innerText = this.total;
     }
 }
+
+// Agregar un evento de clic al botón "Vaciar Carrito"
+const btnLimpiarCarrito = document.getElementById("limpiarCarrito");
+const btnComprar = document.getElementById("btnComprar");
+
+btnLimpiarCarrito.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-danger",
+            cancelButton: "btn btn-primary",
+        },
+        buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+        .fire({
+            title: "¿Estás seguro de que deseas vaciar el carrito?",
+            text: "Esto eliminará todos los productos del carrito.",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Sí, vaciar carrito",
+            cancelButtonText: "No, mantener productos",
+            reverseButtons: true,
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    "Carrito vacio",
+                    "Se han eliminado todos los productos del carrito.",
+                    "success"
+                );
+                carrito.vaciarCarrito();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+            }
+        });
+});
+
+// Se configura el boton comprar y se agrega libreria de Sweet Alert2
+//Se logra mas estilo en el carrito de compras
+btnComprar.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: "btn btn-success",
+            cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: false,
+    });
+
+    swalWithBootstrapButtons
+        .fire({
+            title: "¿Estás seguro de que deseas comprar?",
+            text: "Una vez que confirmes, finalizarás el proceso de compra.",
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Si, comprar",
+            cancelButtonText: "No, seguir comprando",
+            reverseButtons: true,
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                swalWithBootstrapButtons.fire(
+                    "¡Compra exitosa!",
+                    "Tu pedido se ha realizado.",
+                    "success"
+                );
+                carrito.vaciarCarrito();
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+            }
+        });
+});

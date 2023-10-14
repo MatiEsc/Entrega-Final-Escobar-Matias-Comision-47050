@@ -30,6 +30,11 @@ h2 {
     margin-top: 2rem;
     font-size: xx-large;
 }
+.underline-on-hover:hover {
+    text-decoration: underline;
+    transition: transform 0.5s;
+    transform: scale(1.1);
+}
 
 .encabezado {
     position: fixed;
@@ -101,10 +106,8 @@ h2 {
     background-color: rgb(68, 0, 153);
     border-radius: 0.5rem;
 }
-
-.offcanvasRight {
-    z-index: 1000;
-    background-color: solid;
+.offcanvas {
+    z-index: 9999;
 }
 
 .carousel1 {
@@ -190,12 +193,13 @@ h2 {
     grid-row-gap: 10px;
     height: auto;
 }
+
 .card {
     background: white;
     border-radius: 10px;
     transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(190, 190, 190), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
     border: 1px solid #e5e5e5;
     padding: 20px;
     margin-bottom: 20px;
@@ -210,8 +214,8 @@ h2 {
 }
 
 .shadow {
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
-        0 0 0 2px rgb(190, 190, 190), 0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0.1), 0 0 0 2px rgb(190, 190, 190),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
 }
 
 .card:hover {
