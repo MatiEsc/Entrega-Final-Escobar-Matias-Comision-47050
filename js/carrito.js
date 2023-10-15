@@ -20,7 +20,7 @@ class Carrito {
     // Agregar al carrito
     agregar(producto) {
         const productoEnCarrito = this.estaEnCarrito(producto);
-        // Si no está en el carrito, le mando eun push y le agrego
+        // Si no está en el carrito, le mando un push y le agrego
         // la propiedad "cantidad"
         if (!productoEnCarrito) {
             this.carrito.push({ ...producto, cantidad: 1 });

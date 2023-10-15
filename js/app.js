@@ -30,7 +30,9 @@ function cargarProductos(productos) {
                         <h5 class="card-title">${producto.nombre}</h5>
                         <p class="card-text">${producto.descripcion}</p>
                         <p class="precio">$${producto.precio}</p>
+                        <a href="#" class="btnAmpliar btn btn-primary" data-imagen="${producto.imagen}">Ampliar</a>
                         <a href="#" class="btnAgregar btn btn-primary" data-id="${producto.id}">Agregar al carrito</a>
+                        
                     </div>
                 </div>
 
@@ -39,6 +41,7 @@ function cargarProductos(productos) {
 
     // Lista dinámica con todos los botones que haya en nuestro catálogo
     const botonesAgregar = document.querySelectorAll(".btnAgregar");
+    const botonesAmpliar = document.querySelectorAll(".btnAmpliar");
 
     // Recorremos botón por botón de cada producto en el catálogo y le agregamos
     // el evento click a cada uno
@@ -63,6 +66,18 @@ function cargarProductos(productos) {
                         "linear-gradient(to right, #440099, #1E90FF, #00D4FF, #00D4FF, #1E90FF, #440099)",
                 },
             }).showToast();
+        });
+    }
+    for (const boton of botonesAmpliar) {
+        boton.addEventListener("click", (event) => {
+            //Evita el comportamiento default del html
+            event.preventDefault();
+
+            Swal.fire({
+                imageUrl: boton.dataset.imagen,
+                imageHeight: 500,
+                imageAlt: "Imagen ampliada",
+            });
         });
     }
 }
