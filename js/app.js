@@ -1,12 +1,12 @@
-// Instanciamos la base de datos
-const bd = new BaseDeDatos();
-
 // Elementos
 const spanCantidadProductos = document.querySelector("#cantidadProductos");
 const spanTotalCarrito = document.querySelector("#totalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector("#carrito");
 const inputBuscar = document.querySelector("#inputBuscar");
+
+// Instanciamos la base de datos
+const bd = new BaseDeDatos();
 
 // Instaciamos la clase Carrito
 const carrito = new Carrito();

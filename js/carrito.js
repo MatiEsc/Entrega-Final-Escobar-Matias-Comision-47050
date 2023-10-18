@@ -84,6 +84,15 @@ class Carrito {
             this.total += producto.precio * producto.cantidad;
             this.cantidadProductos += producto.cantidad;
         }
+        if (this.cantidadProductos > 0) {
+            //Que el boton comprar y limpiar carrito quede visible
+            btnComprar.style.display = "block";
+            btnLimpiarCarrito.style.display = "block";
+        } else {
+            //Boton de comprar y limpiar carrito invisible
+            btnComprar.style.display = "none";
+            btnLimpiarCarrito.style.display = "none";
+        }
         // Como no se cuantos productos tengo en el carrito, debo
         // asignarle los eventos de forma dinámica a cada uno
         // Primero hago una lista de todos los botones con .querySelectorAll

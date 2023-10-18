@@ -16,12 +16,13 @@ class BaseDeDatos {
     constructor() {
         // Array para el catálogo
         this.productos = [];
-        this.cargarRegistros;
+        this.cargarRegistros();
     }
 
+    // Función asincrónica para cargar los productos desde un JSON
     async cargarRegistros() {
-        const resultado = await fetch("/json/productos.json");
-        this.productos = await resultado.json;
+        const resultado = await fetch("./json/productos.json");
+        this.productos = await resultado.json();
         cargarProductos(this.productos);
     }
 
