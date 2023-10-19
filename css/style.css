@@ -32,7 +32,6 @@ h2 {
 }
 
 .seleccionado {
-    text-shadow: #ff6600;
     text-decoration: underline;
 }
 
@@ -53,7 +52,7 @@ h2 {
     width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.2fr;
     grid-auto-rows: 1fr;
     gap: 0px 0px;
     grid-auto-flow: row;
@@ -64,7 +63,8 @@ h2 {
 
     grid-template-areas:
         "logo buscador carrito"
-        "menu menu menu";
+        "menu menu menu"
+        "data data data";
 }
 
 .menu {
@@ -118,6 +118,14 @@ h2 {
 }
 .offcanvas {
     z-index: 9999;
+}
+
+.data {
+    grid-area: data;
+    font-family: "Work Sans", sans-serif;
+    display: flex;
+
+    margin: auto;
 }
 
 .fecha {
@@ -208,11 +216,11 @@ h2 {
 }
 
 .contenedorTarjetas {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
 }
 
 .card {
