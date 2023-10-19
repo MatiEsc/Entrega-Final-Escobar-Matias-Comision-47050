@@ -4,6 +4,10 @@ const spanTotalCarrito = document.querySelector("#totalCarrito");
 const divProductos = document.querySelector("#productos");
 const divCarrito = document.querySelector("#carrito");
 const inputBuscar = document.querySelector("#inputBuscar");
+const enlacePromociones = document.getElementById("promocionesBancarias");
+const ventana = document.getElementById("ventana");
+const cerrarVentana = document.getElementById("cerrarVentana");
+const enlacesCategorias = document.querySelectorAll(".nav-link");
 
 // Instanciamos la base de datos
 const bd = new BaseDeDatos();
@@ -90,13 +94,6 @@ inputBuscar.addEventListener("input", (event) => {
     cargarProductos(productos);
 });
 
-// Obtén una referencia al enlace "Ver promociones"
-const enlacePromociones = document.getElementById("promocionesBancarias");
-
-// Obtén una referencia al ventana y al botón de cerrar
-const ventana = document.getElementById("ventana");
-const cerrarVentana = document.getElementById("cerrarVentana");
-
 // Abre el ventana cuando se hace clic en "Ver promociones"
 enlacePromociones.addEventListener("click", () => {
     ventana.style.display = "block";
@@ -107,9 +104,7 @@ cerrarVentana.addEventListener("click", () => {
     ventana.style.display = "none";
 });
 
-//Enlaces categorias para que muestre todos los productos seleccionando la categoria
-const enlacesCategorias = document.querySelectorAll(".nav-link");
-
+//Enlaces por categorias
 enlacesCategorias.forEach((enlace) => {
     enlace.addEventListener("click", (event) => {
         event.preventDefault();
@@ -127,6 +122,7 @@ enlacesCategorias.forEach((enlace) => {
     });
 });
 
+//Funcion para filtrar por categoria
 function filtrarPorCategoria(categoria) {
     const productosFiltrados = bd.productos.filter(
         (producto) => producto.categoria.toLowerCase() === categoria.toLowerCase()

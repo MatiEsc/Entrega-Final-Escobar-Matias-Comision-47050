@@ -124,7 +124,6 @@ h2 {
     grid-area: data;
     font-family: "Work Sans", sans-serif;
     display: flex;
-
     margin: auto;
 }
 
@@ -133,9 +132,7 @@ h2 {
     position: fixed;
     top: 0;
     left: 0;
-    font-size: medium;
     font-family: "Work Sans", sans-serif;
-    color: rgb(68, 0, 153);
     font-style: italic;
 }
 
