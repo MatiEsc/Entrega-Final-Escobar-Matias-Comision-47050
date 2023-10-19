@@ -76,8 +76,11 @@
                         </div>
                         <h2>Total: $<span id="totalCarrito">0</span></h2>
                         <!-- Botón para limpiar el carrito -->
-                        <button class="btn btn-outline-danger" id="limpiarCarrito">Vaciar Carrito</button>
-                        <button class="btn btn-outline-danger" id="btnComprar">Comprar</button>
+                        <div class="flex">
+                            <button class="btn btn-outline-danger" id="limpiarCarrito">Vaciar Carrito</button>
+                            <button class="btn btn-outline-danger" id="btnComprar">Comprar</button>
+                        </div>
+                        
 
                     </div>
                 </div>
@@ -109,7 +112,7 @@
                                     <a class="nav-link underline-on-hover" href="#" data-categoria="ofertas">OFERTAS</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link underline-on-hover" href="#" data-categoria="completo">CATALOGO COMPLETO</a>
+                                    <a class="nav-link  underline-on-hover seleccionado" href="#" data-categoria="completo">CATALOGO COMPLETO</a>
                                 </li>
                             </ul>
                         </div>
@@ -120,6 +123,15 @@
                 <p><span id="fechaActual"></span></p>
             </div>
 
+            <!-- Cotización del dólar oficial -->
+            <div class="cotizacion" id="cotizacionOficial">
+                <h4>Dólar Oficial: <span id="dolarOficial"></span></h4>
+            </div>
+
+            <!-- Cotización del dólar blue -->
+            <div class="cotizacion" id="cotizacionBlue">
+                <h4>Dólar Blue: <span id="dolarBlue"></span></h4>
+            </div>
 
         </header>
 
@@ -260,6 +272,7 @@
         <script src="js/carrito.js"></script>
         <script src="js/bd.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/dolar.js"></script>
 
 
         

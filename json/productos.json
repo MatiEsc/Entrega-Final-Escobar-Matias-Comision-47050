@@ -75,7 +75,7 @@
     {
         "id": 201,
         "nombre": "Apple",
-        "descripcion": "Apple - iPhone 13 Pro 256GB Sierra Blue.",
+        "descripcion": "Celular Apple - iPhone 13 Pro 256GB Sierra Blue.",
         "precio": 2339900,
         "categoria": "celular",
         "imagen": "imagenes/celulares/celular-apple.webp"
@@ -91,7 +91,7 @@
     {
         "id": 203,
         "nombre": "Samsung",
-        "descripcion": "Samsung Galaxy Z Fold4 Dual Sim 512 Gb Gray Green 12 Gb Ram.",
+        "descripcion": "Celular Samsung Galaxy Z Fold4 Dual Sim 512 Gb Gray Green 12 Gb Ram.",
         "precio": 1346399,
         "categoria": "celular",
         "imagen": "imagenes/celulares/celular-samsungFold.webp"
@@ -115,7 +115,7 @@
     {
         "id": 206,
         "nombre": "TCL",
-        "descripcion": "Tcl 30 Se 256 Gb Space Gray 6 Gb Ram.",
+        "descripcion": "Celular TCL 30 Se 256 Gb Space Gray 6 Gb Ram.",
         "precio": 160999,
         "categoria": "celular",
         "imagen": "imagenes/celulares/celular-tcl.webp"
@@ -139,7 +139,7 @@
     {
         "id": 209,
         "nombre": "Apple",
-        "descripcion": "Apple - iPhone 13 256GB Pink.",
+        "descripcion": "Celular Apple - iPhone 13 256GB Pink.",
         "precio": 2429820,
         "categoria": "celular",
         "imagen": "imagenes/celulares/celular-apple-pink.webp"

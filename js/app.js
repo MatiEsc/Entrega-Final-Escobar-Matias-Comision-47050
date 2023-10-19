@@ -114,6 +114,11 @@ enlacesCategorias.forEach((enlace) => {
     enlace.addEventListener("click", (event) => {
         event.preventDefault();
         const categoria = event.target.dataset.categoria;
+        //quitar seleccionado anterior
+        const enlaceSeleccionado = document.querySelector(".seleccionado");
+        enlaceSeleccionado.classList.remove("seleccionado");
+        //Se lo agrega al enlace
+        enlace.classList.add("seleccionado");
         if (categoria === "completo") {
             cargarProductos(bd.productos);
         } else {
@@ -129,57 +134,3 @@ function filtrarPorCategoria(categoria) {
     //llama a la funcion para mostrar los productos en la pagina
     cargarProductos(productosFiltrados);
 }
-
-/*
-
-function mostrarPrimerosProductosPorCategoria() {
-    const categorias = ["notebook", "celular", "smartTv", "ofertas"];
-
-    categorias.forEach((categoria) => {
-        const productosCategoria = bd.productos.filter(
-            (producto) => producto.categoria === categoria
-        );
-        const primerosProductos = productosCategoria.slice(0, 4);
-
-        const divProductosCategoria = document.querySelector(`#${categoria} .productos`);
-        divProductosCategoria.innerHTML = "";
-
-        primerosProductos.forEach((producto) => {
-            divProductosCategoria.innerHTML += `
-
-
-                <div class="card " style="width: 18rem;">
-                    <img src="${producto.imagen}" class="card-img-top"  alt="${producto.nombre}>
-                    <div class="card-body">
-                        <h5 class="card-title">${producto.nombre}</h5>
-                        <p class="card-text">${producto.descripcion}</p>
-                        <p class="precio">$${producto.precio}</p>
-                        <a href="#" class="btnAgregar btn btn-primary" data-id="${producto.id}">Agregar al carrito</a>
-                    </div>
-                </div>
-
-            `;
-        });
-        // Lista dinámica con todos los botones que haya en nuestro catálogo
-        const botonesAgregar = document.querySelectorAll(".btnAgregar");
-
-        // Recorremos botón por botón de cada producto en el catálogo y le agregamos
-        // el evento click a cada uno
-        for (const boton of botonesAgregar) {
-            boton.addEventListener("click", (event) => {
-                // Evita el comportamiento default de HTML
-                event.preventDefault();
-                // Guardo el dataset ID que está en el HTML del botón Agregar al carrito
-                const idProducto = Number(boton.dataset.id);
-                // Uso el método de la base de datos para ubicar el producto según el ID
-                const producto = bd.registroPorId(idProducto);
-                // Llama al método agregar del carrito
-                carrito.agregar(producto);
-            });
-        }
-    });
-}
-
-// Llama a esta función después de cargar los productos por primera vez
-mostrarPrimerosProductosPorCategoria();
-*/
